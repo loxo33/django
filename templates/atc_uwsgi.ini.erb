@@ -1,0 +1,22 @@
+# atc_uwsgi.ini file
+[uwsgi]
+
+# Django-related settings
+# the base directory (full path)
+chdir           = /var/www/atc.rescue.org/current
+# Django's wsgi file
+module          = atc.wsgi
+# the virtualenv (full path)
+home            = /opt/venv/atc
+
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = 10
+# the socket (use the full path to be safe
+socket          = /var/www/atc.rescue.org/current/atc.sock
+# ... with appropriate permissions - may be needed
+# chmod-socket    = 664
+# clear environment on exit
+vacuum          = true

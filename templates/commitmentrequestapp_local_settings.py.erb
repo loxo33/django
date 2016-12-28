@@ -1,0 +1,81 @@
+# Database
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'CommitmentRequests',
+        'USER': 'masterchief',
+        'PASSWORD': 'masterchief',
+        'HOST': '',
+        'PORT': '',
+        'OPTIONS': {
+            'dsn': 'CommitmentRequests',  # Name that you used in odbc.ini file
+            'driver': 'FreeTDS',
+            'host_in_server': True
+        }
+    },
+    'budgets_db': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'BudgetManagement',
+        'USER': 'masterchief',
+        'PASSWORD': 'masterchief',
+        'HOST': '',
+        'PORT': '',
+        'OPTIONS': {
+            'dsn': 'BudgetManagement',  # Name that you used in odbc.ini file
+            'driver': 'FreeTDS',
+            'host_in_server': True,
+        }
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'bva.nipiij.cfg.usw2.cache.amazonaws.com:11211',
+        'TIMEOUT': None,
+    },
+    'staticfiles': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'staticfiles',
+        'TIMEOUT': 3600 * 24 * 8,
+        'MAX_ENTRIES': 1000,
+    }
+}
+
+# Setting for overwriting the site url in order to redirect all API calls
+SITE_URL = ''
+
+# IRC Email Service config values
+EMAIL_SERVER = 'https://ircemailservice.rescue.org'
+EMAIL_APP_NAME = 'Budget versus Actuals'
+
+#COMPRESS_ENABLED setting defaults to !Debug
+COMPRESS_ENABLED = True
+
+# Google Analytics code for QA
+ANALYTICS_CODE = "UA-71427669-3"
+
+ANALYTICS_SERVICE_ACCOUNT_KEYFILE = 'BvA Analytics Project-ee9e732c453a.json'
+ANALYTICS_SERVICE_ACCOUNT_EMAIL = "budgetvsactuals@analog-codex-134813.iam.gserviceaccount.com"
+
+BVA_REPORT_USAGE_MONTHS = 12   # In Months
+
+ENVIRONMENT = "<%= @environment %>"
+VERSIONNUMBER = "v1.1"
+
+BUDGETMANAGEMET_DB_LINKEDSERVER = ''
+BUDGET_T1_OVERDUE_MONTHS_AVAILABLE = 3
+T1_OVERDUE_MONTHS_AVAILABLE = 0
+MONITOR_T1_MONTHS_AVAILABLE = 3
+
+STATIC_ROOT = '/var/venv/commitmentrequestapp/static'
+
+MAX_FILE_SIZE = 1 #In MB # For Uploads
+
+SESSION_TIMEOUT_ENABLED = True
+CACHE_ENABLED = True
+CACHE_FOR_CONTROL_LIST_ENABLED = True
+MAX_SESSION_EXPIRATION = 1800
+MIN_SESSION_OFFSET = 1500

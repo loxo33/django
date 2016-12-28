@@ -1,0 +1,68 @@
+import os
+
+from atc.settings import APP_ROOT
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'atc',
+        'USER': 'atcuser',
+        'PASSWORD': 'iwKKC4ijVk4ASHj4oypqD',
+        'HOST': 'atc.corrvlnekxvi.us-west-2.rds.amazonaws.com',
+        'PORT': '3306'
+    }
+}
+
+IRC_DATA_SERVICE = 'https://otis.rescue.org/_data/Data/%(service)s/%(collection)s'
+
+# Superuser status will be granted to these names on login
+IRC_ADMINS = ['irclegal', 'josephhe', 'kateli', 'OTISTestUser', 'compliance']
+
+# Auto logout delay in minutes
+AUTO_LOGOUT_DELAY = 60
+
+# Max login attempts before locking out the user
+MAX_LOGIN_ATTEMPTS = 10
+
+# Lockout time in seconds
+LOCKOUT_TIME = 900
+
+# Time in seconds after which confirmation email is sent
+CONFIRMATION_WAIT_TIME = 1800
+
+# Email host to use
+EMAIL_HOST = ''
+
+# Port for outgoing mails
+EMAIL_PORT = ''
+
+# Username to use
+EMAIL_HOST_USER = ''
+
+# Password to use
+EMAIL_HOST_PASSWORD = ''
+
+# "From" email address
+EMAIL_FROM_ADDRESS = ''
+
+# Should TLS be used for email  authentication
+EMAIL_USE_TLS = True
+
+HEADER_TITLE = 'ATC Request'
+
+# Bridger XG WSDL URL
+XGSERVICES_WSDL_URL = 'https://bridgertest.lexisnexis.com/WebServicesAPI/10.0/XGServices.svc?singleWsdl'
+
+AES_KEY_PATH = os.path.join(APP_ROOT, 'aes_key')
+
+# Path to wkhtmltopdf executable
+WKHTMLTOPDF_PATH = ''
+
+# Maximum number of days until password expires, when ATC should change the password via API
+DAYS_UNTIL_PASSWORD_CHANGE = 5
+
+# URL to Alert inbox in Bridger browser app
+BRIDGER_ALERT_INBOX_URL = 'https://bridgertest.lexisnexis.com/BrowserClient/Inbox/Default.aspx'
+
+# Max concurrent connections to Bridger
+BRIDGER_MAX_CONNECTIONS = 10
